@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginService } from 'src/app/service/login.service';
 import { ProductService } from 'src/app/service/product.service';
 
 @Component({
@@ -16,6 +17,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.viewService();
+
   }
 
   viewService() {

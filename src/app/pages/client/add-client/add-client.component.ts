@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ClientService } from 'src/app/service/client.service';
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-add-client',
@@ -9,7 +11,8 @@ import { ClientService } from 'src/app/service/client.service';
 })
 export class AddClientComponent implements OnInit {
   validateForm!: FormGroup;
-  constructor(private fb: FormBuilder, private clientService: ClientService) { }
+  constructor(private fb: FormBuilder, private clientService: ClientService,
+    private router: Router, private loginService: LoginService) { }
 
   ngOnInit(): void {
 
@@ -50,13 +53,12 @@ export class AddClientComponent implements OnInit {
   registerClient(username: string, password: string) {
     this.clientService.registerClient(username, password)
       .subscribe((res) => {
-          window.alert("client has register successfully");
-
+        window.alert("client has register successfully");
 
       }, (err) => {
         if (err.status == 409)
           window.alert("username is already taken");
-        console.log(err);
+        window.alert(err.error.response.body.message)
       })
   }
 

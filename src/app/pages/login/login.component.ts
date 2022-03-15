@@ -44,11 +44,11 @@ export class LoginComponent implements OnInit {
         .subscribe((res) => {
           let client = res.response.body;
           localStorage.setItem("clientLoggedIn", "true");
-          localStorage.setItem("clientId",client.clientId);
+          localStorage.setItem("clientId", client.clientId);
           this.loginService.loggedIn.next(true);
           this.router.navigateByUrl("/");
         }, (err) => {
-          console.log(err);
+          window.alert(err.error.response.body.message);
         })
 
     else if (type == 2) {
@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
           let provider = res.response.body;
           localStorage.clear();
           localStorage.setItem("providerLoggedIn", "true");
-          localStorage.setItem("clientId",provider.providerId);
+          localStorage.setItem("providerId", provider.providerId);
           this.loginService.loggedIn.next(true);
           this.router.navigateByUrl("/provider/dashboard");
         }, (err) => {

@@ -24,10 +24,10 @@ export class AppComponent {
     this.loginService.loggedIn.subscribe((value) => {
 
 
-      this.logged = this.loggedInClient || this.loggedInProvider;
+
       this.loggedInProvider = ((localStorage.getItem("providerLoggedIn") == "true"));
       this.loggedInClient = ((localStorage.getItem("clientLoggedIn") == "true"));
-
+      this.logged = this.loggedInClient || this.loggedInProvider;
       console.log(this.logged + "||" + this.registered);
     })
 
@@ -42,6 +42,12 @@ export class AppComponent {
     // if (!this.loggedInClient && !this.loggedInProvider && !this.registerClient && !this.registerProvider)
     //   this.router.navigateByUrl("/login");
 
+  }
+
+  logout() {
+    localStorage.clear();
+
+    this.loginService.loggedIn.next(false);
   }
 
 }
