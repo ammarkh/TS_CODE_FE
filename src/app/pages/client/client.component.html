@@ -1,0 +1,32 @@
+<nz-table #basicTable>
+    <thead>
+        <tr>
+            <th>issuc Id</th>
+            <th>product name </th>
+            <th>state </th>
+            <th>price</th>
+            <th>expired</th>
+            <th> Action</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of clientService">
+            <td>{{data.id}}</td>
+            <td>{{data.service.name}}</td>
+            <td *ngIf="data.canceled"> canceled</td>
+            <td *ngIf="data.completed">completed</td>
+            <td *ngIf="!data.completed && !data.canceled">pending</td>
+            <td>{{data.service.price}}</td>
+            <td>{{data.expired}}</td>
+            <td>
+                <a (click)="cancel(data.id)">Cancel</a>
+                <nz-divider nzType="vertical"></nz-divider>
+                <a (click)="extend(data.id)">extend</a>
+                <nz-divider nzType="vertical"></nz-divider>
+                <a (click)="complete(data.id)">complete</a>
+
+            </td>
+        </tr>
+    </tbody>
+</nz-table>

@@ -1,0 +1,21 @@
+<nz-descriptions nzTitle="product info " nzBordered>
+    <nz-descriptions-item nzTitle="Product">{{productInfo.name}}</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="category" *ngIf="productInfo.type">{{productInfo.type.name}}</nz-descriptions-item>
+    <!-- <nz-descriptions-item nzTitle="Automatic Renewal">YES</nz-descriptions-item> -->
+    <nz-descriptions-item nzTitle="expire Date">{{productInfo.expiredDate}}</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="type" [nzSpan]="2">
+        {{productInfo.product ? 'product':'service' }}
+    </nz-descriptions-item>
+    <!-- <nz-descriptions-item nzTitle="Status" [nzSpan]="3">
+        <nz-badge nzStatus="processing" nzText="Running"></nz-badge>
+    </nz-descriptions-item> -->
+    <nz-descriptions-item nzTitle="Number of working days">{{productInfo.workingTimeInDay}}</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="price">{{productInfo.price}}</nz-descriptions-item>
+    <!-- <nz-descriptions-item nzTitle="Official Receipts">$60.00</nz-descriptions-item> -->
+    <nz-descriptions-item nzTitle="Description">
+        {{productInfo.description}}
+    </nz-descriptions-item>
+</nz-descriptions>
+
+<br><br>
+<button nz-button nzType="primary" (click)="buyService(productInfo.serviceId)">Buy Service</button>
