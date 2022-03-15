@@ -19,22 +19,26 @@
     </nz-form-item>
     <nz-form-item>
         <nz-form-control>
-            <button nz-button nzType="primary" [disabled]="!validateForm.valid" (click)="changeType(2)">Log in as provider</button>
+            <button nz-button nzType="primary" [disabled]="!validateForm.valid" (click)="changeType(2)">Log in as
+                provider</button>
         </nz-form-control>
     </nz-form-item>
 
     <nz-form-item>
         <nz-form-control>
-            <button nz-button nzType="primary" [disabled]="!validateForm.valid" (click)="changeType(1)">Log in as client</button>
+            <button nz-button nzType="primary" [disabled]="!validateForm.valid" (click)="changeType(1)">Log in as
+                client</button>
         </nz-form-control>
     </nz-form-item>
 
 
 </form>
 
+<div style="position: absolute;top:60%; left:30%; width: 100%;">
+    <a href="/provider/register" style="margin: 10%;">Register AS provider</a>
 
-<a href="/provider/register" style="position:relative">Register AS provider</a>
-<br><br>
-<a href="/client/register" style="position: relative;">Register AS Client</a>
-<br />
-<br />
+    <a href="/client/register" style="position: relative;">Register AS Client</a>
+    <br />
+    <br />
+
+</div>

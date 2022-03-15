@@ -7,6 +7,7 @@ import { NzAlertModule } from 'ng-zorro-antd/alert';
 import { AddClientComponent } from './add-client/add-client.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzButtonModule } from 'ng-zorro-antd/button';
 
 
 
@@ -22,7 +23,8 @@ import { NzFormModule } from 'ng-zorro-antd/form';
     NzAlertModule,
     FormsModule,
     ReactiveFormsModule,
-    NzFormModule
+    NzFormModule,
+    NzButtonModule
   ],
   exports: [
     ClientComponent, 

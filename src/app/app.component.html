@@ -20,6 +20,6 @@
     <nz-footer>MarketPlace ©{{yearDate}} Implement By A.M</nz-footer>
 </nz-layout>
 
-<app-login style="overflow: hidden;" *ngIf="!logged  && !registered"></app-login>
-<app-add-client style="overflow: hidden;" *ngIf="registerProvider"></app-add-client>
-<app-add-provider style="overflow:hidden" *ngIf="registerClient"></app-add-provider>
+<app-login *ngIf="!logged  && !registered"></app-login>
+<app-add-client *ngIf="registerProvider"></app-add-client>
+<app-add-provider *ngIf="registerClient"></app-add-provider>
